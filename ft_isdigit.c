@@ -6,17 +6,20 @@
 /*   By: giarodri <giarodri@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 13:41:48 by giarodri          #+#    #+#             */
-/*   Updated: 2023/09/21 13:47:38 by giarodri         ###   ########.fr       */
+/*   Updated: 2023/09/21 15:48:50 by giarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 int	ft_isdigit(int c)
 {
-	if (c >= '0' && c <= '9')
-	{
-		return (1);
-	}
-	else
-	{
-		return (0);
-	}
+	return (c >= '0' && c <= '9');
+}
+
+#include <stdio.h>
+#include <ctype.h>
+int main (void)
+{
+	char c;
+	c = '8';
+	printf("ft_isdigit: %d\n",ft_isdigit(c));
+	printf("isdigit: %d\n",isdigit(c));
 }

@@ -6,7 +6,7 @@
 /*   By: giarodri <giarodri@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 15:21:12 by giarodri          #+#    #+#             */
-/*   Updated: 2023/09/21 15:21:39 by giarodri         ###   ########.fr       */
+/*   Updated: 2023/09/21 16:12:05 by giarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 int ft_isprint(int c)
