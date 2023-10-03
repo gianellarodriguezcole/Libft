@@ -1,33 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: giarodri <giarodri@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/21 16:40:14 by giarodri          #+#    #+#             */
-/*   Updated: 2023/09/26 15:55:27 by giarodri         ###   ########.fr       */
+/*   Created: 2023/09/26 16:01:26 by giarodri          #+#    #+#             */
+/*   Updated: 2023/09/26 16:01:38 by giarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 {
-	size_t	len;
+	char		*tmp_dst;
+	const char	*tmp_src;
 
-	len = 0;
-	while (s[len] != '\0')
-		len++;
-	return (len);
+	tmp_dst = dst;
+	tmp_src = src;
+	while (n--)
+		*tmp_dst++ = *tmp_src++;
+	return (dst);
 }
 /*
 #include <stdio.h>
 #include <string.h>
+
 int main()
 {
-    char *str = "Hello world!";
-    printf("ft_strlen: %lu\n", ft_strlen(str));
-    printf("strlen: %lu\n", strlen(str));
+    char src[] = "Hello mundo";
+    char dest1[15];
+	char dest2[15];
+    ft_memcpy(dest1, src, sizeof(src));
+    printf("ft_memcpy: %s\n", dest1);
+    memcpy(dest2, src, sizeof(src));
+    printf("memcpy: %s\n", dest2);
     return 0;
 }
 */

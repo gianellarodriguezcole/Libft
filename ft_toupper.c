@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   toupper.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: giarodri <giarodri@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/21 16:40:14 by giarodri          #+#    #+#             */
-/*   Updated: 2023/09/26 15:55:27 by giarodri         ###   ########.fr       */
+/*   Created: 2023/09/26 16:57:59 by giarodri          #+#    #+#             */
+/*   Updated: 2023/09/27 15:59:46 by giarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <stdio.h>
+#include <ctype.h>
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+int	ft_toupper(int c)
 {
-	size_t	len;
-
-	len = 0;
-	while (s[len] != '\0')
-		len++;
-	return (len);
+	if (c >= 'a' && c <= 'z')
+		return (c - 'a' + 'A');
+	return (c);
 }
+
 /*
-#include <stdio.h>
-#include <string.h>
-int main()
+int main(void)
 {
-    char *str = "Hello world!";
-    printf("ft_strlen: %lu\n", ft_strlen(str));
-    printf("strlen: %lu\n", strlen(str));
+    char ch = 'a';
+
+    printf("Original character: %c\n", ch);
+    ch = ft_toupper(ch);
+    printf("Character after ft_toupper: %c\n", ch);
+
     return 0;
 }
 */

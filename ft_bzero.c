@@ -1,33 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                          :+:      :+:    :+:  */
 /*                                                    +:+ +:+         +:+     */
 /*   By: giarodri <giarodri@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/21 16:40:14 by giarodri          #+#    #+#             */
-/*   Updated: 2023/09/26 15:55:27 by giarodri         ###   ########.fr       */
+/*   Created: 2023/09/27 16:53:42 by giarodri          #+#    #+#             */
+/*   Updated: 2023/09/29 16:53:04 by giarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	ft_bzero(void *s, size_t n)
 {
-	size_t	len;
+	size_t	i;
 
-	len = 0;
-	while (s[len] != '\0')
-		len++;
-	return (len);
+	i = 0;
+	while (i < n)
+	{
+		*((char *) s + i) = '\0';
+		i++;
+	}
 }
 /*
-#include <stdio.h>
 #include <string.h>
+#include <stdio.h>
 int main()
 {
-    char *str = "Hello world!";
-    printf("ft_strlen: %lu\n", ft_strlen(str));
-    printf("strlen: %lu\n", strlen(str));
+    char w[200] = "holaaa te";
+    ft_bzero(w, 10);
+    printf("%s", w);
+    printf("\n-------------------------\n");
+    char v[200] = "holaaa te";
+    bzero(v, 10);
+    printf("%s", v);
     return 0;
 }
 */

@@ -1,33 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: giarodri <giarodri@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/21 16:40:14 by giarodri          #+#    #+#             */
-/*   Updated: 2023/09/26 15:55:27 by giarodri         ###   ########.fr       */
+/*   Created: 2023/10/03 13:17:15 by giarodri          #+#    #+#             */
+/*   Updated: 2023/10/03 13:17:35 by giarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_strchr(const char *s, int c)
 {
-	size_t	len;
-
-	len = 0;
-	while (s[len] != '\0')
-		len++;
-	return (len);
+	while (*s)
+	{
+		if (*s == (char) c)
+			return ((char *) s);
+		s++;
+	}
+	if ((char) c == '\0')
+		return ((char *) s);
+	return (NULL);
 }
 /*
-#include <stdio.h>
 #include <string.h>
+#include <stdio.h>
 int main()
 {
-    char *str = "Hello world!";
-    printf("ft_strlen: %lu\n", ft_strlen(str));
-    printf("strlen: %lu\n", strlen(str));
-    return 0;
-}
-*/
+   char *input;
+
+   input = "teste";
+   
+   printf("%s\n", (char *)ft_strchr(input, 'e'));
+
+   char *inputt = "teste";
+   printf("%s\n", (char *)strchr(inputt, 'e'));
+
+
+   
+   return (0);
+}*/

@@ -1,33 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: giarodri <giarodri@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/21 16:40:14 by giarodri          #+#    #+#             */
-/*   Updated: 2023/09/26 15:55:27 by giarodri         ###   ########.fr       */
+/*   Created: 2023/09/29 17:22:31 by giarodri          #+#    #+#             */
+/*   Updated: 2023/09/29 17:22:47 by giarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+static void	cpy(char *d, const char *s, int pos)
 {
-	size_t	len;
+	while (*s)
+	{
+		d[pos] = *s;
+		pos++;
+		s++;
+	}
+}
 
-	len = 0;
-	while (s[len] != '\0')
-		len++;
-	return (len);
-}
-/*
-#include <stdio.h>
-#include <string.h>
-int main()
+char	*ft_strjoin(const char *s1, const char *s2)
 {
-    char *str = "Hello world!";
-    printf("ft_strlen: %lu\n", ft_strlen(str));
-    printf("strlen: %lu\n", strlen(str));
-    return 0;
+	char		*str;
+	size_t		len_s1;
+	size_t		len_s2;
+
+	len_s1 = ft_strlen(s1);
+	len_s2 = ft_strlen(s2);
+	str = (char *)malloc((len_s1 + len_s2) + 1);
+	if (!s1 || !s2 || !str)
+		return (NULL);
+	cpy(str, s1, 0);
+	cpy(str, s2, len_s1);
+	str[len_s1 + len_s2] = '\0';
+	return (str);
 }
-*/

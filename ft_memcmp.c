@@ -1,33 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: giarodri <giarodri@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/21 16:40:14 by giarodri          #+#    #+#             */
-/*   Updated: 2023/09/26 15:55:27 by giarodri         ###   ########.fr       */
+/*   Created: 2023/09/28 15:43:54 by giarodri          #+#    #+#             */
+/*   Updated: 2023/09/28 15:44:33 by giarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t	len;
+	unsigned int	i;
 
-	len = 0;
-	while (s[len] != '\0')
-		len++;
-	return (len);
+	i = 0;
+	while (i < n)
+	{
+		if (*((unsigned char *)s1 + i) == *((unsigned char *)s2 + i))
+			i++;
+		else
+			return ((*((unsigned char *)s1 + i)) - *((unsigned char *)s2 + i));
+	}
+	return (0);
 }
 /*
-#include <stdio.h>
 #include <string.h>
+#include <stdio.h>
 int main()
 {
-    char *str = "Hello world!";
-    printf("ft_strlen: %lu\n", ft_strlen(str));
-    printf("strlen: %lu\n", strlen(str));
+    char s1[] = "hola como ";
+    char s2[] = "hola como estas";
+    printf("Resultado original: %i\n", memcmp(s1, s2, 12));
+    printf("Resultado copia c: %i\n", ft_memcmp(s1, s2, 12));
     return 0;
 }
 */

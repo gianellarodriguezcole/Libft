@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: giarodri <giarodri@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/21 16:40:14 by giarodri          #+#    #+#             */
-/*   Updated: 2023/09/26 15:55:27 by giarodri         ###   ########.fr       */
+/*   Created: 2023/09/28 15:41:54 by giarodri          #+#    #+#             */
+/*   Updated: 2023/09/28 15:43:39 by giarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t	len;
+	unsigned int	i;
 
-	len = 0;
-	while (s[len] != '\0')
-		len++;
-	return (len);
+	i = -1;
+	while (++i < n)
+	{
+		if ((unsigned char) c == *((unsigned char *)s + i))
+			return ((void *)s + i);
+	}
+	return (NULL);
 }
 /*
-#include <stdio.h>
 #include <string.h>
+#include <stdio.h>
 int main()
 {
-    char *str = "Hello world!";
-    printf("ft_strlen: %lu\n", ft_strlen(str));
-    printf("strlen: %lu\n", strlen(str));
+    char dest[] = "Gianella R";
+    printf("Resultado original: %s\n", (char *)memchr(dest, 'R', 122));
+    char s11[] = "Gianella R";
+    printf("Resultado copia m: %s\n", (char *)ft_memchr(s11, 'R', 122));
     return 0;
 }
 */

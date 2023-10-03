@@ -1,33 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: giarodri <giarodri@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/21 16:40:14 by giarodri          #+#    #+#             */
-/*   Updated: 2023/09/26 15:55:27 by giarodri         ###   ########.fr       */
+/*   Created: 2023/09/29 17:23:48 by giarodri          #+#    #+#             */
+/*   Updated: 2023/09/29 17:24:32 by giarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	len;
+	char				*trim;
+	unsigned int		start;
+	unsigned int		end;
 
-	len = 0;
-	while (s[len] != '\0')
-		len++;
-	return (len);
+	if (!s1)
+		return (NULL);
+	if (!set)
+		return ((char *) s1);
+	start = 0;
+	end = ft_strlen(s1);
+	while (s1[start] && ft_strchr(set, s1[start]))
+		start++;
+	while (end && ft_strchr(set, s1[end]))
+		end--;
+	trim = ft_substr(s1, start, (end - start) + 1);
+	if (!trim)
+		return (NULL);
+	return (trim);
 }
 /*
 #include <stdio.h>
-#include <string.h>
 int main()
 {
-    char *str = "Hello world!";
-    printf("ft_strlen: %lu\n", ft_strlen(str));
-    printf("strlen: %lu\n", strlen(str));
-    return 0;
+	printf("%s\n", ft_strtrim("XolX", "lX"));
+	return (0);
 }
 */
